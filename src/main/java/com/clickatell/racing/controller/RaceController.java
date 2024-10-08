@@ -4,6 +4,7 @@ import com.clickatell.racing.dto.CreateRaceDto;
 import com.clickatell.racing.dto.RaceResponseDto;
 import com.clickatell.racing.entity.Race;
 import com.clickatell.racing.service.RaceService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class RaceController {
     private final RaceService raceService;
 
     @PostMapping
-    public ResponseEntity<RaceResponseDto> createRace(@RequestBody CreateRaceDto race) {
+    public ResponseEntity<RaceResponseDto> createRace(@Valid @RequestBody CreateRaceDto race) {
         return ResponseEntity.ok(raceService.createRace(race));
     }
 

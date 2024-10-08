@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -29,8 +30,10 @@ public class RaceResultService {
         Rider rider = modelMapper.map(riderService.getRiderById(createRaceResultDto.getRiderId()), Rider.class);
         raceResult.setRace(race);
         raceResult.setRider(rider);
-        raceResult.setDidNotFinish(createRaceResultDto.isDidNotFinish());
         raceResult.setFinishTime(createRaceResultDto.getFinishTime());
+        if(createRaceResultDto.getFinishTime().isZero()){
+            raceResult.setDidNotFinish(true);
+        }
         return modelMapper.map(raceResultRepository.save(raceResult), RaceResultResponseDto.class);
     }
 
@@ -54,7 +57,9 @@ public class RaceResultService {
     public List<RiderResponseDto> getRidersWhoDidNotParticipate(Long raceId) {
         // Get all race results for the specified race
         List<RaceResult> raceResults = raceResultRepository.findRaceResultsByRaceId(raceId);
-
+        if(raceResults.isEmpty()) {
+            return new ArrayList<>(); // If there is no information about the race return empty
+        }
         // Get the list of rider IDs that participated in the race
         List<Long> participatedRiderIds = raceResults.stream()
                 .map(rr -> rr.getRider().getId())

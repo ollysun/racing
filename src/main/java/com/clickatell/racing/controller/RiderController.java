@@ -3,6 +3,7 @@ package com.clickatell.racing.controller;
 import com.clickatell.racing.dto.CreateRiderDto;
 import com.clickatell.racing.dto.RiderResponseDto;
 import com.clickatell.racing.service.RiderService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class RiderController {
     private final RiderService riderService;
 
     @PostMapping
-    public ResponseEntity<RiderResponseDto> createRider(@RequestBody CreateRiderDto rider) {
+    public ResponseEntity<RiderResponseDto> createRider(@Valid @RequestBody CreateRiderDto rider) {
         return ResponseEntity.ok(riderService.createRider(rider));
     }
 

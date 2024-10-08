@@ -10,6 +10,5 @@ public class CreateRiderDto {
     @NotBlank(message = "please enter the name")
     private String name;
     @Email(message = "enter valid email")
-    @NotBlank(message = "please enter the email")
     private String email;
 }
