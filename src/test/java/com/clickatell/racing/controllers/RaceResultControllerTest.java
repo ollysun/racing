@@ -45,7 +45,6 @@ class RaceResultControllerTest {
         CreateRaceResultDto createRaceResultDto = new CreateRaceResultDto();
         createRaceResultDto.setRaceId(1L);
         createRaceResultDto.setRiderId(1L);
-        createRaceResultDto.setDidNotFinish(false);  // or true based on the test scenario
         createRaceResultDto.setFinishTime(Duration.ofMinutes(120));
 
 
