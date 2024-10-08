@@ -64,8 +64,8 @@ GET  http://localhost:9090/riders/{id}
 ## Assumption
 ```aiignore
 l believe every race must have an estimated minimum duration. In order to meet the 
-requirement  for either finish or non finish race. It either meet it or higher . i.e finish time equal to 
-race duration. Rider can have issue with the bike on the way so he finished with less time . 
+requirement  for either finish or non finish race. It either meet the condition or higher . i.e finish time equal to 
+race duration or higher. Rider can have issue with the bike on the way so he finished with less time . 
 He could be judge to not conclude the race
 ```
 ### Create new race
