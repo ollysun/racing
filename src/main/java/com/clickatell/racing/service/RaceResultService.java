@@ -31,7 +31,7 @@ public class RaceResultService {
         raceResult.setRace(race);
         raceResult.setRider(rider);
         raceResult.setFinishTime(createRaceResultDto.getFinishTime());
-        raceResult.setDidNotFinish(createRaceResultDto.getFinishTime().isZero());
+        raceResult.setDidNotFinish(createRaceResultDto.isDidNotFinish());
         return modelMapper.map(raceResultRepository.save(raceResult), RaceResultResponseDto.class);
     }
 
