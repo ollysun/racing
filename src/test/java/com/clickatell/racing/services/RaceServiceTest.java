@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -51,6 +52,7 @@ class RaceServiceTest {
         race.setName("Mountain Bike Race");
         race.setLocation("Mountain Trails");
         race.setStartTime(LocalDateTime.now());
+        race.setRaceDuration(Duration.ofHours(1).plusMinutes(30));
 
         raceResponseDto = new RaceResponseDto();
         raceResponseDto.setId(1L);

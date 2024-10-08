@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -55,6 +56,8 @@ class RaceControllerTest {
         createRaceDto.setName("Mountain Race");
         createRaceDto.setLocation("Hills");
         createRaceDto.setStartTime(LocalDateTime.now());
+        createRaceDto.setRaceDuration(Duration.ofHours(1).plusMinutes(30));
+
 
         // Perform post request and verify
         mockMvc.perform(post("/races")

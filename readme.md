@@ -61,16 +61,22 @@ GET  http://localhost:9090/riders
 
 GET  http://localhost:9090/riders/{id}
 ```
-
+## Assumption
+```aiignore
+l believe every race must have an estimated minimum duration. In order to meet the 
+requirement  for either finish or non finish race. It either meet it or higher . i.e finish time equal to 
+race duration. Rider can have issue with the bike on the way so he finished with less time . 
+He could be judge to not conclude the race
+```
 ### Create new race
 ```aiignore
-
  POST http://localhost:9090/races
 
 {
   "name": "lagos beanch",
   "startTime": "2024-10-08T10:34:38.152Z",
-  "location": "lagos"
+  "location": "lagos",
+  "raceDuration": 5000
 }
 ```
 
@@ -87,6 +93,7 @@ GET  http://localhost:9090/races/{id}
 ```
 
 ### Create new race result
+
 ```aiignore
 
  POST http://localhost:9090/race-results
@@ -95,7 +102,6 @@ GET  http://localhost:9090/races/{id}
   "raceId": 1,
   "riderId": 2,
   "finishTime": 5400,
-  "didNotFinish": false
 }
 ```
 

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class Race {
     private String name;
     private LocalDateTime startTime;
     private String location;
+    private Duration raceDuration;
 
     @OneToMany(mappedBy = "race")
     private List<RaceResult> raceResults;

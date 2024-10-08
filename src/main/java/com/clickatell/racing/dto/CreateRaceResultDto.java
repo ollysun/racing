@@ -13,6 +13,4 @@ public class CreateRaceResultDto {
     private Long riderId;
     @NotNull(message = "Please enter the finish time")
     private Duration finishTime;
-    @NotNull(message = "Please enter the true or false")
-    private boolean didNotFinish;
 }

@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Data
@@ -15,4 +16,6 @@ public class CreateRaceDto {
     private LocalDateTime startTime;
     @NotBlank(message = "please enter the location")
     private String location;
+    @NotNull(message = "please enter the race Duration")
+    private Duration raceDuration;
 }

@@ -66,6 +66,7 @@ class RaceResultServiceTest {
         race = new Race();
         race.setId(1L);
         race.setName("Mountain Race");
+        race.setRaceDuration(Duration.ofHours(2));
 
         raceResult1 = new RaceResult();
         raceResult1.setId(1L);
